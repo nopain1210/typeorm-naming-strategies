@@ -1,9 +1,7 @@
 import { PostgresNamingStrategy } from '../src';
 import { TableClassNameMustBeSingularError } from '../src/error/table-class-name-must-be-singular.error';
-import { TableClassNameMustInPascalCaseError } from '../src/error/table-class-name-must-in-pascal-case.error';
 import { TableNameMustBePluralError } from '../src/error/table-name-must-be-plural.error';
 import { TableNameMustInSnakeCaseError } from '../src/error/table-name-must-in-snake-case.error';
-import { PropertyNameMustInCamelCaseError } from '../src/error/property-name-must-in-camel-case.error';
 import { ColumnNameMustInSnakeCaseError } from '../src/error/column-name-must-in-snake-case.error';
 import { ManyToManyPropertyNameMustBePluralError } from '../src/error/many-to-many-property-name-must-be-plural.error';
 
@@ -29,14 +27,6 @@ describe('postgresNamingStrategy', () => {
 
         expect(() => strategy.tableName(className, '')).toThrow(
           new TableClassNameMustBeSingularError(className),
-        );
-      });
-
-      it('should returns error when table class name is not in pascal case', () => {
-        const className = 'test_table_name';
-
-        expect(() => strategy.tableName(className, '')).toThrow(
-          new TableClassNameMustInPascalCaseError(className),
         );
       });
     });
@@ -81,14 +71,6 @@ describe('postgresNamingStrategy', () => {
 
           expect(result).toBe('property_name');
         });
-
-        it('should returns error when property name is not in camel case', () => {
-          const propertyName = 'property_name';
-
-          expect(() => strategy.columnName(propertyName, '', [])).toThrow(
-            new PropertyNameMustInCamelCaseError(propertyName),
-          );
-        });
       });
 
       describe('when customName was set', () => {
@@ -125,15 +107,6 @@ describe('postgresNamingStrategy', () => {
           );
 
           expect(result).toBe('test_prefix1_test_prefix2_property_name');
-        });
-
-        it('should returns error when property name is not in camel case', () => {
-          const propertyName = 'property_name';
-          const embeddedPrefixes = ['testPrefix1', 'testPrefix2'];
-
-          expect(() =>
-            strategy.columnName(propertyName, '', embeddedPrefixes),
-          ).toThrow(new PropertyNameMustInCamelCaseError(propertyName));
         });
       });
 

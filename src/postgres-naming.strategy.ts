@@ -7,10 +7,7 @@ import pluralize from 'pluralize';
 import { TableClassNameMustBeSingularError } from './error/table-class-name-must-be-singular.error';
 import { TableNameMustBePluralError } from './error/table-name-must-be-plural.error';
 import { TableNameMustInSnakeCaseError } from './error/table-name-must-in-snake-case.error';
-import { TableClassNameMustInPascalCaseError } from './error/table-class-name-must-in-pascal-case.error';
 import { ColumnNameMustInSnakeCaseError } from './error/column-name-must-in-snake-case.error';
-import { PropertyNameMustInCamelCaseError } from './error/property-name-must-in-camel-case.error';
-import { pascalCase } from 'pascal-case';
 import { ManyToManyPropertyNameMustBePluralError } from './error/many-to-many-property-name-must-be-plural.error';
 
 export class PostgresNamingStrategy
@@ -36,10 +33,6 @@ export class PostgresNamingStrategy
       throw new TableClassNameMustBeSingularError(className);
     }
 
-    if (className !== pascalCase(className)) {
-      throw new TableClassNameMustInPascalCaseError(className);
-    }
-
     return pluralize.plural(snakeCase(className));
   }
 
@@ -50,10 +43,6 @@ export class PostgresNamingStrategy
   ): string {
     if (customName && customName !== snakeCase(customName)) {
       throw new ColumnNameMustInSnakeCaseError(customName);
-    }
-
-    if (propertyName !== camelCase(propertyName)) {
-      throw new PropertyNameMustInCamelCaseError(propertyName);
     }
 
     return (

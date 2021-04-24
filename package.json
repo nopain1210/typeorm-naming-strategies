@@ -1,9 +1,12 @@
 {
   "name": "typeorm-postgres-naming-strategies",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "Strict snake case naming strategies for typeorm postgres",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "typeorm",
     "naming",
@@ -13,7 +16,8 @@
     "naming strategy",
     "snake strategy",
     "typeorm snake",
-    "naming strategies"
+    "naming strategies",
+    "postgres strategy"
   ],
   "repository": {
     "type": "git",
@@ -22,15 +26,10 @@
   "author": "Trần Công",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && npm run tsc && cp README.md package.json dist/src",
+    "build": "rm -rf dist && npm run tsc",
     "tsc": "tsc",
     "test": "jest",
-    "lint": "eslint \"{src,tests}/**/*.ts\" --fix",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
-    "postversion" : "git push && git push --tags",
-    "release": "npm publish dist/src"
+    "lint": "eslint \"{src,tests}/**/*.ts\" --fix"
   },
   "publishConfig": {
     "access": "public"
@@ -55,7 +54,6 @@
     "typeorm": "^0.2.0"
   },
   "dependencies": {
-    "pascal-case": "^3.1.2",
     "pluralize": "^8.0.0"
   }
 }
