@@ -19,23 +19,23 @@ In the DB the `createdAt` field will be `created_at`
 
 ## Installation
 
-It's available as an [npm package](https://www.npmjs.com/package/typeorm-naming-strategies)
+It's available as an [npm package](https://www.npmjs.com/package/typeorm-postgres-naming-strategies)
 
 ```sh
-npm install typeorm-naming-strategies --save
+npm install typeorm-postgres-naming-strategies --save
 ```
 
 Or using yarn
 
 ```sh
-yarn add typeorm-naming-strategies
+yarn add typeorm-postgres-naming-strategies
 ```
 
 ## Usage
 
 ```typescript
 import { createConnection } from 'typeorm';
-import { PostgresNamingStrategy } from 'typeorm-naming-strategies';
+import { PostgresNamingStrategy } from 'typeorm-postgres-naming-strategies';
 
 await createConnection({
   ...
@@ -47,7 +47,7 @@ Alternatively you can use it in combination with a `ormconfig.js`
 
 ```js
 // Use require instead of import
-const PostgresNamingStrategy = require("typeorm-naming-strategies").PostgresNamingStrategy
+const PostgresNamingStrategy = require("typeorm-postgres-naming-strategies").PostgresNamingStrategy
 
 module.exports = {
   ...
