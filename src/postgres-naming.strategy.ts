@@ -3,7 +3,7 @@
 
 import { DefaultNamingStrategy, NamingStrategyInterface } from 'typeorm';
 import { camelCase, snakeCase } from 'typeorm/util/StringUtils';
-import pluralize, { singular } from 'pluralize';
+import pluralize from 'pluralize';
 import { TableClassNameMustBeSingularError } from './error/table-class-name-must-be-singular.error';
 import { TableNameMustBePluralError } from './error/table-name-must-be-plural.error';
 import { TableNameMustInSnakeCaseError } from './error/table-name-must-in-snake-case.error';
