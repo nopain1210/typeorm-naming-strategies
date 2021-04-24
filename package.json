@@ -1,6 +1,6 @@
 {
   "name": "typeorm-postgres-naming-strategies",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "Strict snake case naming strategies for typeorm postgres",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
