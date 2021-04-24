@@ -13,7 +13,7 @@ import { PropertyNameMustInCamelCaseError } from './error/property-name-must-in-
 import { pascalCase } from 'pascal-case';
 import { ManyToManyPropertyNameMustBePluralError } from './error/many-to-many-property-name-must-be-plural.error';
 
-export class SnakeNamingStrategy
+export class PostgresNamingStrategy
   extends DefaultNamingStrategy
   implements NamingStrategyInterface {
   tableName(className: string, customName: string): string {

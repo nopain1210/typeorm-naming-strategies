@@ -35,11 +35,11 @@ yarn add typeorm-naming-strategies
 
 ```typescript
 import { createConnection } from 'typeorm';
-import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+import { PostgresNamingStrategy } from 'typeorm-naming-strategies';
 
 await createConnection({
   ...
-  namingStrategy: new SnakeNamingStrategy(), // Here you'r using the strategy!
+  namingStrategy: new PostgresNamingStrategy(), // Here you'r using the strategy!
 });
 ```
 
@@ -47,10 +47,10 @@ Alternatively you can use it in combination with a `ormconfig.js`
 
 ```js
 // Use require instead of import
-const SnakeNamingStrategy = require("typeorm-naming-strategies").SnakeNamingStrategy
+const PostgresNamingStrategy = require("typeorm-naming-strategies").PostgresNamingStrategy
 
 module.exports = {
   ...
-  namingStrategy: new SnakeNamingStrategy(),
+  namingStrategy: new PostgresNamingStrategy(),
 }
 ```

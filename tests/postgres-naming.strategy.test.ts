@@ -1,4 +1,4 @@
-import { SnakeNamingStrategy } from '../src';
+import { PostgresNamingStrategy } from '../src';
 import { TableClassNameMustBeSingularError } from '../src/error/table-class-name-must-be-singular.error';
 import { TableClassNameMustInPascalCaseError } from '../src/error/table-class-name-must-in-pascal-case.error';
 import { TableNameMustBePluralError } from '../src/error/table-name-must-be-plural.error';
@@ -7,11 +7,11 @@ import { PropertyNameMustInCamelCaseError } from '../src/error/property-name-mus
 import { ColumnNameMustInSnakeCaseError } from '../src/error/column-name-must-in-snake-case.error';
 import { ManyToManyPropertyNameMustBePluralError } from '../src/error/many-to-many-property-name-must-be-plural.error';
 
-describe('snakeNamingStrategy', () => {
-  let strategy: SnakeNamingStrategy;
+describe('postgresNamingStrategy', () => {
+  let strategy: PostgresNamingStrategy;
 
   beforeAll(() => {
-    strategy = new SnakeNamingStrategy();
+    strategy = new PostgresNamingStrategy();
   });
 
   describe('tableName', () => {
