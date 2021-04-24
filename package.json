@@ -25,7 +25,15 @@
     "build": "rm -rf dist && npm run tsc && cp README.md package.json dist/",
     "tsc": "tsc",
     "test": "jest",
-    "lint": "eslint \"{src,tests}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,tests}/**/*.ts\" --fix",
+    "release": "np"
+  },
+  "np": {
+    "yarn": false,
+    "contents": "dist"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "@types/jest": "^26.0.19",
