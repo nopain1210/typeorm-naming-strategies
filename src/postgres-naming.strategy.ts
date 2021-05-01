@@ -51,10 +51,6 @@ export class PostgresNamingStrategy
     );
   }
 
-  relationName(propertyName: string): string {
-    return snakeCase(propertyName);
-  }
-
   joinColumnName(relationName: string, referencedColumnName: string): string {
     return snakeCase(relationName + '_' + referencedColumnName);
   }

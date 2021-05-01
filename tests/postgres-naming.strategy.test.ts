@@ -138,13 +138,6 @@ describe('postgresNamingStrategy', () => {
     });
   });
 
-  describe('relationName', () => {
-    it('should returns property name as snake case', () => {
-      const result = strategy.relationName('testPropertyName');
-      expect(result).toBe('test_property_name');
-    });
-  });
-
   describe('joinColumnName', () => {
     it('should returns relation name and referenced column name joined by "_" as snake case', () => {
       const result = strategy.joinColumnName(
