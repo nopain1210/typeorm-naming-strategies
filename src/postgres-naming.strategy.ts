@@ -16,7 +16,10 @@ export class PostgresNamingStrategy
   tableName(className: string, customName: string): string {
     // If using custom table name
     if (customName) {
-      if (pluralize.isSingular(customName)) {
+      if (
+        pluralize.isSingular(customName) &&
+        pluralize.singular(customName) !== pluralize.plural(customName)
+      ) {
         throw new TableNameMustBePluralError(customName);
       }
 
