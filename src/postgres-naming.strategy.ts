@@ -71,7 +71,7 @@ export class PostgresNamingStrategy
     const snakePropertyName = snakeCase(firstPropertyName.replace(/\./gi, '_'));
 
     return snakeCase(
-      firstTableName +
+      snakeCase(firstTableName) +
         '_' +
         (snakeCase(secondTableName) !== snakePropertyName
           ? snakePropertyName + '_'
@@ -86,7 +86,7 @@ export class PostgresNamingStrategy
     columnName?: string,
   ): string {
     return snakeCase(
-      pluralize.singular(tableName) +
+      snakeCase(pluralize.singular(tableName)) +
         '_' +
         (columnName ? columnName : propertyName),
     );
